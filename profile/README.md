@@ -5,8 +5,8 @@ the **Indomitus** mars rover to compete at the
 [European Rover Challenge](https://roverchallenge.eu).
 
 ## Follow us
-[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)]([https://instagram.com/YOUR_HANDLE](https://www.instagram.com/p/DU8tiNqjQzu/?igsh=cnpmN3ExdnVvMWVt))
-[![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=for-the-badge&logo=Facebook&logoColor=white)]([https://facebook.com/YOUR_PAGE](https://www.facebook.com/profile.php?id=61588639040416))
+[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)](https://www.instagram.com/p/DU8tiNqjQzu/?igsh=cnpmN3ExdnVvMWVt)
+[![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=for-the-badge&logo=Facebook&logoColor=white)](https://www.facebook.com/profile.php?id=61588639040416)
 
 ## Repositories
 | Repo | Description |
