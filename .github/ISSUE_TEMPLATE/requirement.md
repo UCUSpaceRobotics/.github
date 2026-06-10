@@ -2,8 +2,6 @@
 name: Requirement
 about: Single ERC 2026 requirement — implementation and verification tracking
 title: "`REQ-XXX-XXX` — Short title"
-labels: "status/not-started"
-assignees: ""
 ---
 
 📄 **Requirements:** [ERC 2026 Requirements Rev.1](https://docs.google.com/spreadsheets/d/1kTh_hPsFk3os5OtgvjEHLGHIi7hcsNvS/edit?gid=1560242782#gid=1560242782)
@@ -39,7 +37,7 @@ assignees: ""
 
 - [ ] 
 - [ ] 
-- [ ] Verification `X` completed and documented
+- [ ] Verification completed and documented
 
 ---
 
