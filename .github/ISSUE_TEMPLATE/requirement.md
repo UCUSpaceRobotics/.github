@@ -35,9 +35,7 @@ title: "`REQ-XXX-XXX` — Short title"
 
 <!-- Specific and measurable. How do we confirm the requirement is met? -->
 
-- [ ] 
-- [ ] 
-- [ ] Verification completed and documented
+- [ ]
 
 ---
 

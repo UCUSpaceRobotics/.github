@@ -10,6 +10,4 @@ title: "[TASK] Short title"
 ---
 ## Acceptance Criteria
 <!-- Each item is a specific, verifiable condition. The task is done when all are checked. -->
-- [ ] 
-- [ ] 
 - [ ]
