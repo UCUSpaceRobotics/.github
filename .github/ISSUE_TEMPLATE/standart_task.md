@@ -8,6 +8,10 @@ title: "[TASK] Short title"
 <!-- What needs to be done and why. 2-4 sentences. -->
 
 ---
+
 ## Acceptance Criteria
 <!-- Each item is a specific, verifiable condition. The task is done when all are checked. -->
+
+- [ ]
+- [ ]
 - [ ]
