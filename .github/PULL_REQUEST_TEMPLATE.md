@@ -20,7 +20,7 @@
 - 
 - 
 
-## Testing (Future feature!!!)
+## Testing
 <!-- Describe the tests you ran and how to reproduce them -->
 
 - [ ] I have tested this locally

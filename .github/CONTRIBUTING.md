@@ -31,6 +31,8 @@ All team branches **must** follow this pattern:
 - `refactor/` - Code refactoring
 - `experiment/` - Experimental features/tests
 - `hotfix/` - Urgent fixes
+- `chore/` - Minor changes
+- `docs` - Documentation update
 
 ### Team Names
 

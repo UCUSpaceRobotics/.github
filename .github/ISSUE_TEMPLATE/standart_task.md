@@ -1,7 +1,6 @@
 ---
 name: Standart task
 about: Standard team task with requirements and expected outcome
-title: "[TASK] Short title"
 ---
 
 ## Description
