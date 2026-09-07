@@ -20,7 +20,7 @@ jobs:
             });
 
             const logins = new Set();
-            for (const commit of commits) {
+            for (auto-author-assign.ymlconst commit of commits) {
               if (commit.author && commit.author.login) {
                 logins.add(commit.author.login);
               }
