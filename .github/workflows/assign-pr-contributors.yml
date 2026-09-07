@@ -20,12 +20,11 @@ jobs:
             });
 
             const logins = new Set();
-            for (auto-author-assign.ymlconst commit of commits) {
+            for (const commit of commits) {
               if (commit.author && commit.author.login) {
                 logins.add(commit.author.login);
               }
             }
-            // also include the PR creator
             logins.add(context.payload.pull_request.user.login);
 
             await github.rest.issues.addAssignees({
