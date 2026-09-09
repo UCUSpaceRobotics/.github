@@ -1,4 +1,4 @@
-<h1 align="center">UCU Space Robotics</h1>
+<h1 align="center">UCU Space Robotics 🇺🇦</h1>
 
 <p align="center">
   The first Ukrainian team competing at the <a href="https://roverchallenge.eu/">European Rover Challenge</a> —
@@ -36,10 +36,6 @@ releases, and (for firmware) tagged commits — not just code dumps.
 | [indomitus-embedded-control](https://github.com/UCU-MarsRover/indomitus-embedded-control) | Firmware for every microcontroller on the rover (ESP32 / ESP32S3 / ESP32C3), one PlatformIO project per subsystem. | C++, C, PlatformIO |
 | [indomitus-drone](https://github.com/UCUSpaceRobotics/indomitus-drone) | ROS 2 stack for the rover's onboard drone. | ROS 2, MATLAB |
 | [indomitus-ground-station](https://github.com/UCUSpaceRobotics/indomitus-ground-station) | Ground station software — joystick control and serial communication with the rover over ESP32 links. | Docker, ESP32 |
-
-## Team
-
-UCU, Lviv, Ukraine 🇺🇦
 
 <p align="center">
   <a href="https://www.instagram.com/indomitus.ucu/"><img alt="Instagram" src="https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white"></a>
