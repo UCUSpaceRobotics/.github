@@ -1,0 +1,44 @@
+name: Create GitHub release
+
+# Reusable workflow. Creates a GitHub release for a tag produced by
+# version-tag.yml. The body is entirely caller-supplied on purpose: a repo
+# that builds artifacts (docker images, firmware binaries, ...) passes
+# `body` with links/pull commands for them; a repo with nothing to publish
+# just omits it and gets a generic "this tag marks working code" note, so
+# the tag/commit itself is the artifact.
+
+on:
+  workflow_call:
+    inputs:
+      tag:
+        description: "Tag to release (usually version-tag.yml's new_tag output)."
+        type: string
+        required: true
+      main_branch:
+        description: "Branch that gets a real (non-prerelease) release."
+        type: string
+        default: main
+      body:
+        description: "Release notes body. Defaults to a generic 'no build artifacts' note."
+        type: string
+        default: ""
+      generate_release_notes:
+        description: "Let GitHub auto-generate a changelog section in addition to `body`."
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ inputs.tag }}
+          name: ${{ github.ref == format('refs/heads/{0}', inputs.main_branch) && format('Release {0}', inputs.tag) || format('Prerelease {0}', inputs.tag) }}
+          prerelease: ${{ github.ref != format('refs/heads/{0}', inputs.main_branch) }}
+          generate_release_notes: ${{ inputs.generate_release_notes }}
+          body: ${{ inputs.body != '' && inputs.body || format('No build artifacts are published for this release — the tag marks commit `{0}` as verified working code.', github.sha) }}

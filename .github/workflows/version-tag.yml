@@ -1,0 +1,57 @@
+name: Bump and push version tag
+
+# Reusable workflow. Bumps and pushes a semver tag for the exact commit
+# that triggered the calling workflow, before anything is built — so
+# callers can tag whatever they build (a docker image, a release artifact,
+# or nothing at all) with it directly. Kept separate from the release
+# workflow so callers that need to build something *between* tagging and
+# releasing (to embed the tag in the thing they build) can do so.
+#
+# Default behavior: the main branch gets a real release (minor bump, no
+# pre-release marker); the develop branch gets a pre-release train off the
+# last real release (patch bump once, then a `-<suffix>.N` counter per
+# commit). Branch names and the suffix are overridable via inputs.
+
+on:
+  workflow_call:
+    inputs:
+      main_branch:
+        description: "Branch that gets a real (non-prerelease) release."
+        type: string
+        default: main
+      prerelease_branch:
+        description: "Branch that gets a prerelease train."
+        type: string
+        default: develop
+      prerelease_suffix:
+        description: "Suffix appended to prerelease tags, e.g. 1.2.3-dev.4."
+        type: string
+        default: dev
+    outputs:
+      new_tag:
+        description: "The newly created (or bumped) semver tag."
+        value: ${{ jobs.tag.outputs.new_tag }}
+
+permissions:
+  contents: write
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    outputs:
+      new_tag: ${{ steps.tag_version.outputs.new_tag }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Bump version and push tag
+        id: tag_version
+        uses: anothrNick/github-tag-action@1.71.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: false
+          DEFAULT_BUMP: ${{ github.ref == format('refs/heads/{0}', inputs.main_branch) && 'minor' || 'patch' }}
+          PRERELEASE: ${{ github.ref == format('refs/heads/{0}', inputs.prerelease_branch) }}
+          PRERELEASE_SUFFIX: ${{ inputs.prerelease_suffix }}
