@@ -19,16 +19,13 @@
 
 ## What we're building
 
-We're a team of students united by an interest in space, robotics, and hard technical problems —
-designing, building, and shipping a full-scale Mars rover as one system: an onboard ROS 2 stack,
+We're a team of students building Indomitus, a Mars rover, as one system: an onboard ROS 2 stack,
 a robotic arm, a drone, embedded firmware across a dozen microcontrollers, and the ground station
-that flies it all. For us, it's also a chance to show that Ukrainian students keep building
-world-class engineering and competing on the international stage.
+that flies it all.
 
 ## Projects
 
-Each subsystem is its own repository with its own CI — real Docker builds, semantic-versioned
-releases, and (for firmware) tagged commits — not just code dumps.
+Each subsystem is its own repository with its own CI and versioned code.
 
 | Repo | What it is | Stack |
 |---|---|---|
