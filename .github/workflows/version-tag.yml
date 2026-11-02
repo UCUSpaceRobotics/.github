@@ -11,6 +11,10 @@ name: Bump and push version tag
 # pre-release marker); the develop branch gets a pre-release train off the
 # last real release (patch bump once, then a `-<suffix>.N` counter per
 # commit). Branch names and the suffix are overridable via inputs.
+#
+# A commit that already has a tag (e.g. develop fast-forwarded onto a
+# main merge) gets no new tag and an empty `new_tag`, so callers skip
+# the release instead of overwriting the existing one.
 
 on:
   workflow_call:
@@ -46,8 +50,14 @@ jobs:
         with:
           fetch-depth: 0
 
+      # github-tag-action would output the existing tag here, not an empty one.
+      - name: Check for existing tag on this commit
+        id: existing
+        run: echo "tag=$(git tag --points-at HEAD | head -n1)" >> "$GITHUB_OUTPUT"
+
       - name: Bump version and push tag
         id: tag_version
+        if: steps.existing.outputs.tag == ''
         uses: anothrNick/github-tag-action@1.71.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

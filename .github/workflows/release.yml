@@ -5,15 +5,16 @@ name: Create GitHub release
 # that builds artifacts (docker images, firmware binaries, ...) passes
 # `body` with links/pull commands for them; a repo with nothing to publish
 # just omits it and gets a generic "this tag marks working code" note, so
-# the tag/commit itself is the artifact.
+# the tag/commit itself is the artifact. An empty `tag` (commit was
+# already tagged) skips the release.
 
 on:
   workflow_call:
     inputs:
       tag:
-        description: "Tag to release (usually version-tag.yml's new_tag output)."
+        description: "Tag to release (usually version-tag.yml's new_tag output). Empty skips the release."
         type: string
-        required: true
+        default: ""
       main_branch:
         description: "Branch that gets a real (non-prerelease) release."
         type: string
@@ -32,6 +33,7 @@ permissions:
 
 jobs:
   release:
+    if: inputs.tag != ''
     runs-on: ubuntu-latest
     steps:
       - name: Create GitHub Release
